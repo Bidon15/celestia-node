@@ -49,3 +49,25 @@ func TestSyncLightWithBridge(t *testing.T) {
 	time.Sleep(1 * time.Second)
 	assert.False(t, light.HeaderServ.IsSyncing())
 }
+
+func TestReproducePanicDuringConnection(t *testing.T) {
+	sw := NewSwamp(t)
+	bridge := sw.NewBridgeNode()
+
+	ctx := context.Background()
+
+	state := bridge.CoreClient.IsRunning()
+	require.True(t, state)
+
+	addrs, err := peer.AddrInfoToP2pAddrs(host.InfoFromHost(sw.Network.Host(bridge.Host.ID())))
+	require.NoError(t, err)
+	light := sw.NewLightClient(node.WithTrustedPeer(addrs[0].String()))
+	// light := sw.NewLightClient()
+
+	require.NoError(t, sw.Network.LinkAll())
+	_, err = sw.Network.ConnectPeers(bridge.Host.ID(), light.Host.ID())
+	require.NoError(t, err)
+
+	require.NoError(t, bridge.Start(ctx))
+	require.NoError(t, light.Start(ctx))
+}
