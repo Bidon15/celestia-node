@@ -322,8 +322,10 @@ require (
 )
 
 replace (
+	github.com/celestiaorg/celestia-app => github.com/Bidon15/lazyledger-app v1.12.2-dirty-app
 	github.com/cosmos/cosmos-sdk => github.com/celestiaorg/cosmos-sdk v1.5.1-sdk-v0.46.6
 	github.com/filecoin-project/dagstore => github.com/celestiaorg/dagstore v0.0.0-20221014072825-395797efb659
 	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
+	github.com/libp2p/go-libp2p => github.com/Wondertan/go-libp2p v0.5.3-0.20230126212817-d54022334dbe
 	github.com/tendermint/tendermint => github.com/celestiaorg/celestia-core v1.13.0-tm-v0.34.23
 )
