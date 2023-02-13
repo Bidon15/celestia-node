@@ -18,6 +18,9 @@ type Module interface {
 	Head(context.Context) (*header.ExtendedHeader, error)
 	// IsSyncing returns the status of sync
 	IsSyncing(context.Context) bool
+
+	// SyncerHead returns the highest known ExtendedHeader of the network.
+	SyncerHead(context.Context) (*header.ExtendedHeader, error)
 }
 
 // API is a wrapper around Module for the RPC.

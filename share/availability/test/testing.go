@@ -40,6 +40,7 @@ type TestNode struct {
 	share.Getter
 	share.Availability
 	blockservice.BlockService
+
 	host.Host
 }
 
@@ -88,9 +89,11 @@ func (dn *TestDagNet) NewTestNodeWithBlockstore(dstore ds.Datastore, bstore bloc
 		bitswap.SetSimulateDontHavesOnTimeout(false),
 		bitswap.SetSendDontHaves(false),
 	)
+	bserv := blockservice.New(bstore, bs)
+
 	nd := &TestNode{
 		net:          dn,
-		BlockService: blockservice.New(bstore, bs),
+		BlockService: bserv,
 		Host:         hst,
 	}
 	dn.nodes = append(dn.nodes, nd)
