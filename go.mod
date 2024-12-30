@@ -1,6 +1,7 @@
 module github.com/celestiaorg/celestia-node
 
 go 1.21.1
+toolchain go1.22.5
 
 require (
 	cosmossdk.io/errors v1.0.0
@@ -43,7 +44,7 @@ require (
 	github.com/libp2p/go-libp2p-routing-helpers v0.7.3
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/multiformats/go-base32 v0.1.0
-	github.com/multiformats/go-multiaddr v0.11.0
+	github.com/multiformats/go-multiaddr v0.14.0
 	github.com/multiformats/go-multiaddr-dns v0.3.1
 	github.com/multiformats/go-multihash v0.2.3
 	github.com/open-rpc/meta-schema v0.0.0-20201029221707-1b72ef2ea333
@@ -66,10 +67,10 @@ require (
 	go.opentelemetry.io/proto/otlp v1.0.0
 	go.uber.org/fx v1.20.0
 	go.uber.org/zap v1.26.0
-	golang.org/x/crypto v0.14.0
+	golang.org/x/crypto v0.18.0
 	golang.org/x/exp v0.0.0-20230905200255-921286631fa9
 	golang.org/x/sync v0.4.0
-	golang.org/x/text v0.13.0
+	golang.org/x/text v0.14.0
 	google.golang.org/grpc v1.58.3
 	google.golang.org/protobuf v1.31.0
 )
@@ -230,7 +231,7 @@ require (
 	github.com/jmhodges/levigo v1.0.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/klauspost/compress v1.16.7 // indirect
-	github.com/klauspost/cpuid/v2 v2.2.5 // indirect
+	github.com/klauspost/cpuid/v2 v2.2.6 // indirect
 	github.com/klauspost/reedsolomon v1.11.8 // indirect
 	github.com/koron/go-ssdp v0.0.4 // indirect
 	github.com/lib/pq v1.10.7 // indirect
@@ -324,8 +325,8 @@ require (
 	golang.org/x/mod v0.12.0 // indirect
 	golang.org/x/net v0.17.0 // indirect
 	golang.org/x/oauth2 v0.10.0 // indirect
-	golang.org/x/sys v0.13.0 // indirect
-	golang.org/x/term v0.13.0 // indirect
+	golang.org/x/sys v0.16.0 // indirect
+	golang.org/x/term v0.16.0 // indirect
 	golang.org/x/tools v0.13.0 // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
 	gonum.org/v1/gonum v0.13.0 // indirect
