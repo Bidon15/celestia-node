@@ -1,6 +1,6 @@
 module github.com/celestiaorg/celestia-node
 
-go 1.21.1
+go 1.23.0
 
 require (
 	cosmossdk.io/errors v1.0.0
@@ -20,7 +20,7 @@ require (
 	github.com/cristalhq/jwt v1.2.0
 	github.com/etclabscore/go-openrpc-reflect v0.0.37
 	github.com/filecoin-project/dagstore v0.5.6
-	github.com/filecoin-project/go-jsonrpc v0.3.1
+	github.com/filecoin-project/go-jsonrpc v0.8.0
 	github.com/gammazero/workerpool v1.1.3
 	github.com/gogo/protobuf v1.3.3
 	github.com/golang/mock v1.6.0
