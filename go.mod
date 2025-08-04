@@ -1,6 +1,6 @@
 module github.com/celestiaorg/celestia-node
 
-go 1.21.1
+go 1.22
 
 require (
 	cosmossdk.io/errors v1.0.0
@@ -71,7 +71,7 @@ require (
 	golang.org/x/sync v0.4.0
 	golang.org/x/text v0.13.0
 	google.golang.org/grpc v1.58.3
-	google.golang.org/protobuf v1.31.0
+	google.golang.org/protobuf v1.36.6
 )
 
 require (
