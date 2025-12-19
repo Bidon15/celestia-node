@@ -1,0 +1,82 @@
+syntax = "proto3";
+package grpc.blob;
+option go_package = "github.com/celestiaorg/celestia-node/nodebuilder/grpc/pb";
+
+// BlobService provides gRPC access to blob operations.
+// This is a high-performance alternative to JSON-RPC.
+service BlobService {
+  // GetAll returns all blobs for the given namespaces at a specific height.
+  rpc GetAll(GetAllRequest) returns (GetAllResponse);
+  
+  // Get returns a specific blob by namespace and commitment.
+  rpc Get(GetRequest) returns (GetResponse);
+  
+  // GetProof returns the proof for a specific blob.
+  rpc GetProof(GetProofRequest) returns (GetProofResponse);
+  
+  // Submit submits blobs to the network.
+  rpc Submit(SubmitRequest) returns (SubmitResponse);
+}
+
+message GetAllRequest {
+  uint64 height = 1;
+  // Namespaces as raw 29-byte values
+  repeated bytes namespaces = 2;
+}
+
+message GetAllResponse {
+  repeated Blob blobs = 1;
+}
+
+message GetRequest {
+  uint64 height = 1;
+  bytes namespace = 2;
+  bytes commitment = 3;
+}
+
+message GetResponse {
+  Blob blob = 1;
+}
+
+message GetProofRequest {
+  uint64 height = 1;
+  bytes namespace = 2;
+  bytes commitment = 3;
+}
+
+message GetProofResponse {
+  Proof proof = 1;
+}
+
+message SubmitRequest {
+  repeated Blob blobs = 1;
+  double gas_price = 2;
+}
+
+message SubmitResponse {
+  uint64 height = 1;
+}
+
+// Blob represents a data blob in Celestia.
+message Blob {
+  bytes namespace = 1;
+  bytes data = 2;
+  bytes commitment = 3;
+  uint32 share_version = 4;
+  uint64 index = 5;
+  bytes signer = 6;
+}
+
+// Proof contains the NMT proof for blob inclusion.
+message Proof {
+  repeated NMTProof proofs = 1;
+}
+
+// NMTProof is the Namespace Merkle Tree proof.
+message NMTProof {
+  int64 start = 1;
+  int64 end = 2;
+  repeated bytes nodes = 3;
+  bytes leaf_hash = 4;
+  bool is_max_namespace_ignored = 5;
+}
